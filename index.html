@@ -18,14 +18,31 @@
     }
 
     .container {
-      background: #000000;
-      border: 3px solid #146E38;
-      padding: 40px 35px;
-      border-radius: 16px;
-      max-width: 520px;
-      width: 90%;
-      text-align: center;
-    }
+  position: relative;
+  background: #000000;
+  padding: 40px 35px;
+  max-width: 520px;
+  width: 90%;
+  text-align: center;
+  border-radius: 16px;
+
+  /* INNER BORDER (RED) */
+  border: 3px solid #AA1F24;
+}
+
+/* OUTER BORDER (GREEN) */
+.container::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+
+  border: 3px solid #146E38;
+  border-radius: 20px; /* 16px + gap */
+  pointer-events: none;
+}
 
     .logo {
       max-width: 220px;
