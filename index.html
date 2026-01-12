@@ -15,37 +15,43 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
+      padding: 12px; /* mobile safe margin */
+      box-sizing: border-box;
     }
 
     .container {
-  position: relative;
-  background: #000000;
-  padding: 40px 35px;
-  max-width: 520px;
-  width: 90%;
-  text-align: center;
-  border-radius: 16px;
+      position: relative;
+      background: #000000;
+      padding: 40px 35px;
+      max-width: 520px;
+      width: 90%;
+      text-align: center;
+      border-radius: 16px;
 
-  /* INNER BORDER (RED) */
-  border: 3px solid #AA1F24;
-}
+      /* INNER BORDER (RED) */
+      border: 3px solid #AA1F24;
+      box-sizing: border-box;
+    }
 
-/* OUTER BORDER (GREEN) */
-.container::before {
-  content: "";
-  position: absolute;
-  top: -8px;
-  left: -8px;
-  right: -8px;
-  bottom: -8px;
+    /* OUTER BORDER (GREEN) */
+    .container::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      right: -8px;
+      bottom: -8px;
 
-  border: 3px solid #146E38;
-  border-radius: 20px; /* 16px + gap */
-  pointer-events: none;
-}
+      border: 3px solid #146E38;
+      border-radius: 20px; /* 16px + gap */
+      pointer-events: none;
+      box-sizing: border-box;
+    }
 
     .logo {
       max-width: 220px;
+      width: 100%;
+      height: auto;
       margin-bottom: 25px;
     }
 
@@ -60,6 +66,7 @@
       font-size: 14px;
       opacity: 0.85;
       margin-bottom: 30px;
+      line-height: 1.4;
     }
 
     .doc-link {
@@ -75,6 +82,8 @@
       color: #ffffff;
       background-color: #146E38;
       transition: opacity 0.15s ease;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .doc-link:hover {
@@ -90,6 +99,38 @@
       font-size: 12px;
       opacity: 0.6;
     }
+
+    /* ✅ MOBILE TUNING */
+    @media (max-width: 480px) {
+      .container {
+        width: calc(100% - 24px); /* full width minus safe margins */
+        padding: 28px 18px;       /* tighter padding for mobile */
+        border-radius: 14px;
+      }
+
+      .container::before {
+        border-radius: 18px; /* 14px + gap */
+      }
+
+      .logo {
+        max-width: 180px;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      .doc-link {
+        padding: 14px 12px;
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 
@@ -103,7 +144,7 @@
     <p>Official legal policies applicable to the VAMO Poker platform</p>
 
     <a class="doc-link" href="VAMO_Poker_Terms_and_Conditions_Bilingual.pdf" target="_blank">
-      📄 Terms & Conditions (Portuguese / English)
+      📄 Terms &amp; Conditions (Portuguese / English)
     </a>
 
     <a class="doc-link" href="VAMO_Poker_Privacy_Policy_Bilingual.pdf" target="_blank">
